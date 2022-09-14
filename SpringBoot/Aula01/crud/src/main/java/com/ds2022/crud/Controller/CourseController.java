@@ -20,14 +20,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import lombok.AllArgsConstructor;
 
-@RestController
+@RestController     //Define a classe como Controller
 @RequestMapping("/api/course")
 @AllArgsConstructor
 public class CourseController {
 
     private CourseRepository courseRepository; 
 
-    @GetMapping
+    @GetMapping //Mapeia o get, para retornar os contedos da tabela 
     public List<Course> list() {
         return courseRepository.findAll();
     }
