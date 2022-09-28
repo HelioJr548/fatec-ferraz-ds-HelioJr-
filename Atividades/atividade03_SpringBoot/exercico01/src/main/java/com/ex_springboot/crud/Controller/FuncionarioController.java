@@ -16,6 +16,7 @@ import com.ex_springboot.crud.Repository.FuncionarioRepository;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import lombok.AllArgsConstructor;
 
@@ -45,6 +46,21 @@ public class FuncionarioController {
     @GetMapping("/{idFuncionario}")
     public Optional<Funcionario> getId(@PathVariable Long idFuncionario) {
         return funcionarioRepository.findById(idFuncionario);
+    }
+
+    @PutMapping("/{idFuncionario}")
+    Optional<Object> update(@RequestBody Funcionario newfuncionario, @PathVariable Long idFuncionario){
+    
+    return funcionarioRepository.findById(idFuncionario).
+        map(funcionario -> {
+            funcionario.setNome(newfuncionario.getNome());
+            funcionario.setEmail(newfuncionario.getEmail());
+            funcionario.setCelular(newfuncionario.getCelular());
+            funcionario.setCargo(newfuncionario.getCargo());
+            funcionario.setSalario(newfuncionario.getSalario());
+            funcionario.setDataAdmissao(newfuncionario.getDataAdmissao());
+            return funcionarioRepository.save(funcionario);
+        });
     }
 
 }
