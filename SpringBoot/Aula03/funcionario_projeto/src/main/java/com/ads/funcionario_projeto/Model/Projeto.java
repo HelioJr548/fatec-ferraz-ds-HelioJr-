@@ -40,7 +40,7 @@ public class Projeto {
             CascadeType.MERGE
     }, mappedBy = "projetos")
     @JsonIgnore
-    private Set<Funcionario> funcionarios = new HashSet<>();
+    private Set<Funcionario> funcionario = new HashSet<>();
 
 }
 

@@ -33,11 +33,11 @@ public class Funcionario {
     private String email;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
+        CascadeType.PERSIST,
+        CascadeType.MERGE
     })
     @JoinTable(name = "funcionario_projeto", joinColumns = {
-            @JoinColumn(name = "funcionario_id") }, inverseJoinColumns = { @JoinColumn(name = "projeto_id") })
-    private Set<Projeto> projetos = new HashSet<>();
+        @JoinColumn(name = "funcionario_id") }, inverseJoinColumns = { @JoinColumn(name = "projeto_id") })
+    private Set<Projeto> projeto = new HashSet<>();
 
 }
