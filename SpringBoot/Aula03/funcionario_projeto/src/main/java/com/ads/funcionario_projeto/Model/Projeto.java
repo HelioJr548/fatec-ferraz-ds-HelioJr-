@@ -1,17 +1,27 @@
 package com.ads.funcionario_projeto.Model;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
-import com.ads.funcionario_projeto.Model.Funcionario;
-
 @Entity
 @Data
+
 public class Projeto {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "projeto_generator")
@@ -40,7 +50,7 @@ public class Projeto {
             CascadeType.MERGE
     }, mappedBy = "projetos")
     @JsonIgnore
-    private Set<Funcionario> funcionario = new HashSet<>();
+    private Set<Funcionario> tutorials = new HashSet<>();
 
 }
 
