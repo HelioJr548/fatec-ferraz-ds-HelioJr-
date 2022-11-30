@@ -1,21 +1,8 @@
 package com.ads.funcionario_projeto.Model;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.JoinColumn;
+import javax.persistence.*
 
 import lombok.Data;
 
@@ -49,6 +36,6 @@ public class Funcionario {
         @JoinTable(name = "funcionario_projeto", joinColumns = {
                         @JoinColumn(name = "funcionario_id") }, inverseJoinColumns = {
                                         @JoinColumn(name = "projeto_id") })
-        private Set<Projeto> etiquetas = new HashSet<>();
+        private Set<Projeto> projetos = new HashSet<>();
 
 }
