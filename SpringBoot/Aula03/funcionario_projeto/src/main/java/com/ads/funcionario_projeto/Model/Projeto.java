@@ -1,19 +1,8 @@
 package com.ads.funcionario_projeto.Model;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -50,18 +39,6 @@ public class Projeto {
             CascadeType.MERGE
     }, mappedBy = "projetos")
     @JsonIgnore
-    private Set<Funcionario> tutorials = new HashSet<>();
+    private Set<Funcionario> funcionarios = new HashSet<>();
 
 }
-
-/*
- * – A anotação @Entity indica que a classe é uma classe Java persistente.
- * – A anotação @Table fornece a tabela que mapeia essa entidade.
- * 
- * – A anotação @Id é para a chave primária.
- * – A anotação GenerationType.SEQUENCE é usada para definir a estratégia de
- * geração da chave primária.
- * 
- * – A anotação @Column é usada para definir a coluna no banco de dados que
- * mapeia o campo anotado.
- */
