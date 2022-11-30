@@ -1,8 +1,8 @@
 package com.ads.funcionario_projeto.Model;
 
-import java.util.*
+import java.util.*;
 
-import javax.persistence.*
+import javax.persistence.*;
 
 import lombok.Data;
 
